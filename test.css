@@ -1,0 +1,29 @@
+.heading {
+	text-align: center;
+}
+.link {
+	background-color: darkgray;
+	width: 100%;
+	padding: 10px 0;
+	text-align: center;
+}
+.link a {
+	padding: 10px;
+	background-color: #353535;
+	text-decoration: none;
+	color: white;
+}
+th {
+	padding: 10px;
+	margin: 5px;
+}
+td {
+	height: 100px;
+	background-color: lightsteelblue;
+}
+img {
+	float: left;
+	width: 80px;
+	height: 80px;
+	overflow: auto
+}

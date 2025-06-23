@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+	hmtl {
+		height: 100%;
+	}
+	.content {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+	}
+	.row1 {
+		height: 40%;
+	}
+	.row2 {
+		display: flex;
+		flex: 1;
+	}
+	iframe {
+		width: 100%;
+		height: 100%;
+		border: 1px solid black;
+	}
+	.row2 iframe {
+		flex: 1;
+	}
+</style>
+</head>
+
+<body>
+	<div class="content">
+		<div class="row1">
+			<iframe src="./tieude.html" frameborder="0"></iframe>
+		</div>
+		<div class="row2">
+			<iframe src="./thucdon.html" frameborder="0"></iframe>
+			<iframe src="./bai1.html" frameborder="0"></iframe>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+	table {
+		background-color: azure;
+	}
+	.form {
+		display: flex;
+		justify-content: center;
+	}
+</style>
+</head>
+
+<body>
+	<div class="form">
+		<table border="1px solid">
+			<caption><h2>Phiếu đăng ký tham gia chương trình khuyến mãi</h2></caption>
+			<tr>
+				<td>Họ và tên</td>
+				<td><input type="text" id="hoTen"></td>
+			</tr>
+			<tr>
+				<td>Địa chỉ</td>
+				<td><input type="text" id="diaChi"></td>
+			</tr>
+			<tr>
+				<td>Điện thoại</td>
+				<td><input type="number" id="sdt"></td>
+			</tr>
+			<tr>
+				<td>Phái</td>
+				<td>
+					<input type="radio" name="checkbox" id="nam">
+					<label for="nam">Nam</label>
+					<input type="radio" name="checkbox" id="nu">
+					<label for="nu">Nữ</label>
+				</td>
+			</tr>
+			<tr>
+				<td>Nghề nghiệp</td>
+				<td>
+					<select name="" id="nghenghiep">
+						<option value="Bác sĩ" id="bacsi">Bác sĩ</option>
+						<option value="Kỹ sư" id="kysu">Kỹ sư</option>
+						<option value="Giáo viên" id="giaovien">Giáo viên</option>
+						<option value="Khác" id="khac">Khác</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Chọn sản phẩm tham gia</td>
+				<td>
+					<select name="sanpham" id="sanpham" multiple>
+						<option value="kem đánh răng" id="kem">Kem đánh răng</option>
+						<option value="Bột giặt" id="botgiat">Bột giặt</option>
+						<option value="Dầu gội đầu" id="daugoi">Dầu gội đầu</option>
+						<option value="Sữa tắm" id="suatam">Sữa tắm</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Đăng ký</td>
+				<td>
+					<input type="checkbox" name="lang" value="Tiếng anh">Tiếng anh
+					<input type="checkbox" name="lang" value="Tiếng hàn">Tiếng hàn
+					<input type="checkbox" name="lang" value="Tiếng nhật">Tiếng nhật
+				</td>
+			</tr>
+			<tr>
+				<td>Số người dự đoán tham gia</td>
+				<td><input type="number" id="dudoan"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="button" onClick="dongY()" value="Đồng ý"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span id="thongBao"></span></td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		function dongY() {
+			var hoten = document.getElementById('hoTen').value;
+			var diachi = document.getElementById('diaChi').value;
+			var sdt = document.getElementById('sdt').value;
+			//phai
+			var phai;
+			if (document.getElementById('nam').checked == true) {phai = 'Nam'} else {phai = 'Nữ'};
+			//nghenghiep
+			var nghenghiep = document.getElementById('nghenghiep').value;
+			//sanpham
+			var sanpham = document.getElementById('sanpham').value;
+			//dudoan
+			var dudoan = document.getElementById('dudoan').value;
+			var checkbox = document.getElementsByName('lang');
+			var dachon = '';
+			for (var i = 0; i<checkbox.length;i++) {
+				if (checkbox[i].checked==true) {
+					dachon = dachon + ' ' + checkbox[i].value + ' ';
+				}
+			}
+			if (hoten!=='' && diachi!=='' && sdt!=='' && phai!=='' && nghenghiep!=='' && dudoan!=='' && sanpham !=='') {
+				thongBao.innerText = `Họ tên: ${hoten}
+									Địa chỉ: ${diachi}
+									SĐT: ${sdt}
+									Phái: ${phai}
+									Nghề nghiệp: ${nghenghiep}
+									Sản phẩm đã chọn: ${sanpham}
+									Dự đoán: ${dudoan}
+									Ngôn ngữ: ${dachon}`;
+				return;
+			} else alert('Nhập đầy đủ');
+			
+			
+		}
+		
+	</script>
+</body>
+</html>

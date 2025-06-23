@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+
+	table {
+		border-radius: 4px;
+		border-collapse: collapse;
+		width: 100%;
+		height: 100%;
+	}
+	table, td {
+		border: 1px solid black;
+		box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+	}
+	td {
+		padding: 8px; 
+	}
+	tr:first-child {
+		background-color: #003399;
+		height: 50px;
+	}
+	.form {
+		display: flex;
+		justify-content: center;	
+	}
+	.col1 {
+		width: 20%;
+	}
+	.col2 {
+		width: 80%;
+	}
+	.iframeWrap {
+		opacity: 1;
+		transition: opacity 0.5s ease;
+	}
+	.iframeWrap.fade-out {
+		opacity: 0;
+	}
+</style>
+<script>
+    const links = document.querySelectorAll('td.col1 a');
+    const iframe = document.getElementById('iframeContent');
+    const wrapper = document.getElementById('iframeWrapper');
+
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            wrapper.classList.add('fade-out');
+
+            // Đợi hiệu ứng mờ đi hoàn tất rồi thay src
+            setTimeout(() => {
+                iframe.src = this.href;
+            }, 500); // Thời gian trùng với transition
+
+            // Khi iframe load xong, hiện lại bằng hiệu ứng fade-in
+            iframe.onload = () => {
+                wrapper.classList.remove('fade-out');
+            };
+        });
+    });
+</script>
+
+</head>
+
+<body>
+	<div class="form">
+		<table>
+		<tr>
+			<td colspan="2">
+				<iframe src="./tieude.html" frameborder="0" width="100%"></iframe>
+			</td>
+		</tr>
+		<tr style="height: 900px">
+			<td class="col1">
+				<ul>
+					<li><a href="./bai1.html" target="thucdon">Bai 01 - Cac tag co ban</a></li>
+					<li><a href="./bai2.html" target="thucdon">Bai 02 - Cac tag co ban, co dinh dang</a></li>
+					<li><a href="./bai3.html" target="thucdon">Bai 03 - Dinh dang trang web</a></li>
+					<li><a href="./bai4.html" target="thucdon">Bai 04 - Dinh dang trang web (tt)</a></li>
+					<li><a href="./bai5.html" target="thucdon">Bai 05 - Dinh dang van ban</a></li>
+					<li><a href="./bai6.html" target="thucdon">Bai 06 - Dinh dang van ban (tt)</a></li>
+					<li><a href="./bai7.html" target="thucdon">Bai 07 - Hinh anh, lien ket, danh sach và ky tu dac biet</a></li>
+					<li><a href="./bai8.html" target="thucdon">Bai 08 - Tao bang</a></li>
+					<li><a href="./bai9.html" target="thucdon">Bai 09 - Tao bang, co tron dong va cot</a></li>
+					<li><a href="./bai10.html" target="thucdon">Bai 10 - Tao bang, có tron dong va cot(tt)</a></li>
+					<li><a href="./bai11.html" target="thucdon">Bai 11 - Tao form va cac dieu khien</a></li>
+					<li><a href="./bai12_1..html" target="thucdon">Bai 12 - Tao form va cac dieu khien (tt)</a></li>
+					<li><a href="./bai13_1.html" target="thucdon">Bai 13 - Tao form va cac dieu khien(tt)</a></li>
+					<li><a href="./bai16.html" target="thucdon">Bai 16 </a></li>
+				</ul>
+			</td>
+			<td class="col2">
+				<div class="iframeWrap">
+					<iframe src="./bai2.html" frameborder="0" name="thucdon" width="100%" height="100%"></iframe>
+				</div>
+			</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

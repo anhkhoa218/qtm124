@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+	html {
+		background-color: tan;
+	}
+	.form {
+		display: flex;
+		justify-content: center;
+		margin-top: 50px;
+	}	
+	table {
+		border: 3px dashed;
+		border-radius: 5px;
+		background-color: cadetblue;
+	}
+</style>
+</head>
+
+<body>
+	<div class="form">
+		<table>
+			<caption>Đăng ký du lịch</caption>
+			<tr>
+				<td>Họ và tên</td>
+				<td><input type="text" id="hoten"></td>
+			</tr>
+			<tr>
+				<td>Địa chỉ</td>
+				<td><input type="text" id="diachi"></td>
+			</tr>
+			<tr>
+				<td>Điện thoại</td>
+				<td><input type="text" id="sdt"></td>
+			</tr>
+			<tr>
+				<td>Khách Việt Nam</td>
+				<td><input type="checkbox" id="check"></td>
+			</tr>
+			<tr>
+				<td>Chọn tour</td>
+				<td>
+					<select name="" id="danhsach">
+						<optgroup value="" label="Miền Bắc">
+							<option >Hà Nội - Hạ Long - Sapa</option>
+							<option >Hà Nội - Chùa Hương - Ninh Bình</option>
+							<option >Hà Nội - Cát Bà - Tuần Châu</option>
+						</optgroup>
+						<optgroup value="" label="Miền Trung">
+							<option >Huế - Bạch Mã - Đà Nẵng</option>
+							<option >Nha Trang - Đà Lạt</option>
+							<option >Buôn Mê Thuột - Gia Lai - Kontum</option>
+						</optgroup>
+						<optgroup value="" label="Miền Nam	">
+							<option >TP.HCM - Cần Thơ - Cà Mau</option>
+							<option >TP.HCM - Mỹ Tho</option>
+						</optgroup>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Phương tiện</td>
+				<td>
+				<label>
+				<input type="radio" name="phuongtien">Máy bay
+				</label>
+				<label>
+				<input type="radio" name="phuongtien">Xe ô tô
+				</label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<fieldset>
+						<legend>Số lượng đoàn khách</legend>
+						Người lớn <input type="text" id="nguoilon"> Trẻ em <input type="text" id="tre">
+					</fieldset>
+				</td>
+			</tr>
+			<tr>
+				<td>Ghi chú thêm</td>
+				<td><textarea name="" id="ghichu" cols="30" rows="10"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="button" onclick="dongY()" value="Đồng ý">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" height="20px"><span id="thongbao"></span></td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		function dongY() {
+			var dachon = document.getElementById('danhsach');
+			let option = dachon.options[dachon.selectedIndex].text;
+			var khach = document.getElementById('check').checked;
+			var xe = document.querySelector('input[name="phuongtien"]:checked')?.value || "";
+			var ghichu = document.getElementById('ghichu').value;
+			var nguoilon = document.getElementById('nguoilon').value;
+			var tre = document.getElementById('tre').value;
+			var hoten = document.getElementById('hoten').value;
+			var diachi = document.getElementById('diachi').value;
+			var sdt = document.getElementById('sdt').value;
+			console.log(option, khach, xe, ghichu, nguoilon, tre, hoten, diachi, sdt);
+			if (hoten !== '' && diachi !== '' && sdt !== '' && xe !== '' && option !== '') {
+				thongbao.innerText = 'dang ky thanh cong'
+			} else alert('Nhap lai');	
+		}
+	</script>
+</body>
+</html>

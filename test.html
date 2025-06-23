@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+	.box {
+		opacity: 0;
+		transition: opacity 1s ease;
+	}	
+	
+</style>
+</head>
+
+<body>
+	<ul>
+		<li><input type="radio" name="chon" value="green">xanh</li>
+		<li><input type="radio" name="chon" value="red">đỏ</li>
+		<li><input type="radio" name="chon" value="violet">tím</li>
+		<li><input type="radio" name="chon" value="yellow">vàng</li>
+		<input type="button" value="ok" onClick="check()">
+	</ul>
+	<div class="sanpham">
+		<select name="" id="">
+			<option value="">Sua tam</option>
+			<option value="">Dau goi</option>
+			<option value="">Kem danh rang</option>
+			<option value="">Dau an</option>
+		</select>
+<!--		<span id="num">1</span>-->
+		<input type="number" id="num">
+		<input type="button" value="+" class="tinh" onClick="cong()">
+		<input type="button" value="-" class="tinh" onclick="tru()">
+		<input type="button" onClick="kiemtra()" value="check">
+		<span id="show"></span>
+	</div>
+	<script>
+		function check() {
+			let chon = document.querySelector('input[name="chon"]:checked');
+			if (chon) {
+				document.body.setAttribute('bgcolor',chon.value);
+			}
+		}
+		function cong() {
+			var so = document.getElementById('num').value;
+			console.log(so);
+			so++;
+			num.value= so;
+		}
+		function tru() {
+			var so = Number(document.getElementById('num').textContent);
+			if (so>0) {
+				so--;
+				num.innerText = so;	
+			}
+			
+		}
+		function kiemtra() {
+			var list = document.querySelectorAll('option');
+			for (let i = 0; i<list.length; i++) {
+				if (list[i].selected == true) {
+					show.innerText = `san pham ban da chon la ${document.getElementById('num').value} ${list[i].text}`;
+				}
+			}
+		}
+ 	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+.maunen {
+	background-color: green;
+	color: white;
+}
+.title {
+	font-weight: bold;
+	text-align: center;
+	color: chartreuse;
+}
+img {
+	width: 100px;
+	height: 100px;
+}
+marquee {
+	text-shadow: 2px 2px 5px red;
+}
