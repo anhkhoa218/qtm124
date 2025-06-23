@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <title>Untitled Document</title>
 <style>
-
+	html, body {
+		height: 100%;
+	}
 	table {
 		border-radius: 4px;
 		border-collapse: collapse;
@@ -32,12 +34,21 @@
 	.col2 {
 		width: 80%;
 	}
+	iframe {
+		height: 100%;
+	}
 	.iframeWrap {
 		opacity: 1;
 		transition: opacity 0.5s ease;
 	}
 	.iframeWrap.fade-out {
 		opacity: 0;
+	}
+	table, tr, td, .iframeWrap, iframe {
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		border: none;
 	}
 </style>
 <script>
@@ -51,12 +62,10 @@
 
             wrapper.classList.add('fade-out');
 
-            // Đợi hiệu ứng mờ đi hoàn tất rồi thay src
+           
             setTimeout(() => {
                 iframe.src = this.href;
-            }, 500); // Thời gian trùng với transition
-
-            // Khi iframe load xong, hiện lại bằng hiệu ứng fade-in
+            }, 500); 
             iframe.onload = () => {
                 wrapper.classList.remove('fade-out');
             };
@@ -74,7 +83,7 @@
 				<iframe src="./tieude.html" frameborder="0" width="100%"></iframe>
 			</td>
 		</tr>
-		<tr style="height: 900px">
+		<tr style="height: 600px">
 			<td class="col1">
 				<ul>
 					<li><a href="./bai1.html" target="thucdon">Bai 01 - Cac tag co ban</a></li>
