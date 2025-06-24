@@ -3,6 +3,32 @@
 <head>
 <meta charset="utf-8">
 <title>Bai 4</title>
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+body {
+  color: black;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url(./laudaigo.jpg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+  pointer-events: none;
+}
+
+</style>
 </head>
 
 <body>

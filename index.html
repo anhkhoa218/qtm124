@@ -50,28 +50,57 @@
 		margin: 0;
 		border: none;
 	}
+	.col1 ul li {
+		transition: all 0.3s ease;
+		margin: 8px 0;
+		padding: 8px;
+		border-radius: 4px;
+	}
+	.col1 ul li:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+		background-color: #eef5ff;
+	}
+	.col2 {
+		transition: all 0.4s ease;
+		transform: translateY(0);
+		opacity: 1;
+	}
+	.col2.fade {
+		transform: translateY(30px);
+		opacity: 0;
+	}
 </style>
 <script>
-    const links = document.querySelectorAll('td.col1 a');
-    const iframe = document.getElementById('iframeContent');
-    const wrapper = document.getElementById('iframeWrapper');
+  window.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('.col1 a');
+    var iframe = document.querySelector('iframe[name="thucdon"]');
+    var wrapper = document.querySelector('.iframeWrap');
+    var col2 = document.querySelector('.col2');
 
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function (e) {
+        e.preventDefault();
 
-            wrapper.classList.add('fade-out');
+        // Thêm hiệu ứng cho cả iframe wrapper và .col2
+        wrapper.classList.add('fade-out');
+        col2.classList.add('fade');
 
-           
-            setTimeout(() => {
-                iframe.src = this.href;
-            }, 500); 
-            iframe.onload = () => {
-                wrapper.classList.remove('fade-out');
-            };
-        });
-    });
+        var href = this.href;
+
+        setTimeout(function () {
+          iframe.src = href;
+        }, 200);
+
+        iframe.onload = function () {
+          wrapper.classList.remove('fade-out');
+          col2.classList.remove('fade');
+        };
+      });
+    }
+  });
 </script>
+
 
 </head>
 
