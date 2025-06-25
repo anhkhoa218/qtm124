@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+	html {
+		text-align: center
+	}
+</style>
+</head>
+
+<body>
+	<div class="form">
+		<fieldset>
+			<legend>Thông tin cá nhân</legend>
+			<label>Họ tên</label>
+			<input type="text"><br>
+			<label>Ngày sinh</label>
+			<select id="ngay"></select>
+			<label>Tháng</label>
+			<select id="thang"></select>
+			<label>Năm</label>
+			<select id="nam"></select><br>
+			<label for="">Giới tính</label>
+			<label for="">
+				<input type="radio" name="gioitinh">Nam
+			</label>
+			<label for="">
+				<input type="radio" name="gioitinh">Nữ
+			</label><br>
+			<label>Địa chỉ<textarea name="" id="" cols="30" rows="5"></textarea></label><br>
+			<label for="">Điện thoại <input type="text"></label><br>
+			<label for="">Email <input type="text"></label>
+		</fieldset>
+		<fieldset>
+			<legend>Thông tin đăng nhập</legend>
+			<label for="">
+				Tên đăng nhập
+				<input type="text">
+			</label><br>
+			<label for="">
+				Mật khẩu
+				<input type="password">
+			</label><br>
+			<label for="">
+				Nhập lại mật khẩu
+				<input type="password">
+			</label>
+		</fieldset>
+		<input type="button" value="Đăng ký" id="btnDangKy">
+		<input type="button" value="Hủy">
+	</div>
+	<script>
+		//tạo ngày
+		var ngay = document.querySelector('#ngay');
+		var thang = document.querySelector('#thang');
+		var nam = document.querySelector('#nam');
+		var ngaytrongthang = 31;
+		for (var i = 1; i<=12; i++) {
+			var option = document.createElement('option');
+			option.value=i;
+			option.textContent =i;
+			thang.appendChild(option);
+		}for (var i = 1950; i<=2026; i++) {
+			var option = document.createElement('option');
+			option.value=i;
+			option.textContent =i;
+			nam.appendChild(option);
+		}
+		function updateNgay() {
+		var selectedMonth = parseInt(thang.value);
+		var daysInMonth = 31;
+
+		if (selectedMonth === 2) {
+			daysInMonth = 28;
+		} else if ([4, 6, 9, 11].includes(selectedMonth)) {
+			daysInMonth = 30;
+		}
+
+		ngay.innerHTML = '';
+		for (var i = 1; i <= daysInMonth; i++) {
+			var option = document.createElement('option');
+			option.value = i;
+			option.textContent = i;
+			ngay.appendChild(option);
+		}
+		}
+		thang.onchange = updateNgay;
+		// đăng ký
+		document.querySelector('input[type="button"][value="Đăng ký"]').onclick = function(event) {
+			if (event.key === 'Enter'){
+			var select = document.querySelector('fieldset');
+			var item = select.querySelectorAll('input, select, textarea');
+			var check =Array.from(item).some(function(item) {
+				return item.value === '';
+			})
+			if (check) alert('nhap lai'); else alert('Đăng ký thành công')
+			}
+		}
+	</script>
+</body>
+</html>
